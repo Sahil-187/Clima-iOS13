@@ -8,14 +8,14 @@ protocol WeatherManagerDelegate {
 }
 
 class WeatherManager {
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=97f2a864963df7610b79219ee64c9f8c&units=metric&q="
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid={Key}&units=metric&q="
     var delegate : WeatherManagerDelegate?
     func fetchWeather(cityName : String) {
         let urlString = weatherURL + cityName
         performRequest(with: urlString)
     }
     func fetchWeather(_ lat : CLLocationDegrees,_ lon : CLLocationDegrees) {
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?appid=97f2a864963df7610b79219ee64c9f8c&units=metric&lat=\(lat)&lon=\(lon)"
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?appid={Key}&units=metric&lat=\(lat)&lon=\(lon)"
         performRequest(with: urlString)
     }
     
